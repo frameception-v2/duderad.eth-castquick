@@ -2,7 +2,6 @@
 
 import { useEffect, useCallback, useState } from "react";
 import sdk, {
-  AddFrame,
   type Context,
 } from "@farcaster/frame-sdk";
 import {
