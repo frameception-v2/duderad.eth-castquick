@@ -3,7 +3,6 @@
 import { useEffect, useCallback, useState } from "react";
 import sdk, {
   AddFrame,
-  SignIn as SignInCore,
   type Context,
 } from "@farcaster/frame-sdk";
 import {
@@ -50,11 +49,11 @@ export default function Frame() {
     try {
       await sdk.actions.addFrame();
     } catch (error) {
-      if (error instanceof AddFrame.RejectedByUser) {
+      if (error instanceof sdk.AddFrameRejectedByUserError) {
         setAddFrameResult(`Not added: ${error.message}`);
       }
 
-      if (error instanceof AddFrame.InvalidDomainManifest) {
+      if (error instanceof sdk.AddFrameInvalidDomainManifestError) {
         setAddFrameResult(`Not added: ${error.message}`);
       }
 
